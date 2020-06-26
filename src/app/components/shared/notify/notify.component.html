@@ -1,0 +1,10 @@
+<div class="notify">
+    <div *ngIf="!expired" [style.animationDuration]="nfc.duration + 'ms'" class="notify-pop">
+        <p>
+            {{ nfc.message }}
+            <a *ngFor="let act of nfc.actions" (click)="act.fn()" class="text-primary ml-1" role="button">
+                {{ act.name }}
+            </a>
+        </p>
+    </div>
+</div>

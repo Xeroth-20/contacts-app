@@ -1,0 +1,43 @@
+.notify {
+    display: inline-block;
+    position: sticky;
+    bottom: 26px;
+    left: 100%;
+}
+
+.notify-pop {
+    animation: fadeInOut linear;
+    
+    background-color: #262626;
+    border-radius: 6px;
+    color: #eaeaea;
+    padding: 0.45rem 1.75em;
+}
+
+.notify-pop p {
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.notify-pop a {
+    font-size: 15px;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,55 @@
+<div class="contact-list animate__animated animate__faster animate__fadeIn">
+
+    <div class="row">
+        <div class="col-auto mr-auto">
+            <h1>Lista de contactos</h1>
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <button [routerLink]="['/contact', 'new']" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Agregar
+            </button>
+        </div>
+    </div>
+    <hr>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="">#</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Correo electrónico</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contactList; let i = index;" class="animate__animated animate__fadeIn">
+                <th scope="row"> {{ i + 1 }} <i *ngIf="contact.favorite" class="text-primary fa fa-star"></i></th>
+                <td> {{ contact.firstname }} </td>
+                <td> {{ contact.lastname }} </td>
+                <td> {{ contact.email }} </td>
+                <td> {{ contact.cpnumber }} </td>
+                <td>
+                    <button (click)="editContact(contact.id)" class="btn btn-primary mr-3" type="button">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                    <button (click)="deleteContact(contact, i)" class="btn btn-outline-danger" type="button">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!isLoading && contactList.length < 1" class="alert alert-primary text-center">
+        <div><i class="fa fa-exclamation fa-2x"></i></div>
+        <p class="h4">Su registro de contactos está vacio</p>
+    </div>
+
+    <div *ngIf="isLoading" class="alert alert-primary text-center">
+        <div><i class="fa fa-refresh fa-spin fa-2x"></i></div>
+        <p class="h4">Cargando... por favor espere</p>
+    </div>
+
+</div>

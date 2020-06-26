@@ -1,0 +1,71 @@
+<div class="contact animate__animated animate__faster animate__fadeIn">
+
+    <div class="row">
+        <div class="col-auto mr-auto">
+            <h1> {{ formTitle }} </h1>
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <button [routerLink]="['/contact-list']" class="btn btn-outline-primary">
+                <i class="fa fa-arrow-left"></i> Regresar
+            </button>
+        </div>
+    </div>
+    <hr>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="row">
+
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-6">
+                    <div class="form-group">
+                        <label for="fbid-ctrl">Firebase ID</label>
+                        <input formControlName="id" type="text" id="fbid-ctrl" class="form-control">
+                        <small class="form-text text-muted">Este campo es autogenerado</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname-ctrl">Nombres</label>
+                        <input formControlName="firstname" type="text" id="firstname-ctrl" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname-ctrl">Apellidos</label>
+                        <input formControlName="lastname" type="text" id="lastname-ctrl" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email-ctrl">Correo electrónico</label>
+                        <input formControlName="email" type="text" id="email-ctrl" class="form-control">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="cpnumber-ctrl">Numero telefónico</label>
+                        <input formControlName="cpnumber" type="text" id="cpnumber-ctrl" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-6 d-none d-sm-flex row align-content-center">
+                    <div class="col-12 mb-3">
+                        <div class="img-wrap mx-auto">
+                            <img class="img-fluid d-block" src="assets/svgs/undraw_male_avatar.svg" alt="Avatar">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-center">Foto del contacto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-8 col-md-6">
+            <div class="form-check mb-4">
+                <input formControlName="favorite" type="checkbox" id="favorite-ctrl" class="form-check-input">
+                <label for="favorite-ctrl" class="form-check-label text-primary">
+                    <i class="fa fa-star"></i> Marcar como favorito
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-block btn-primary" type="submit">
+                    <i class="fa fa-save"></i> Guardar contacto
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
